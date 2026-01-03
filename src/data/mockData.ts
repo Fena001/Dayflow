@@ -1,0 +1,181 @@
+import type { User, Attendance, LeaveRequest, PayrollRecord, Notification } from '../types';
+
+export const mockUsers: User[] = [
+  {
+    id: 'EMP001',
+    name: 'Admin User',
+    email: 'admin@company.com',
+    role: 'admin',
+    position: 'HR Manager',
+    department: 'Human Resources',
+    joinDate: '2020-01-01',
+    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    companyName: 'TechCorp Inc.',
+    location: 'New York',
+    phone: '+1 555 0101',
+    address: '101 Admin St, NY',
+    salary: 120000,
+    isTempPassword: false,
+    password: 'password',
+  },
+  {
+    id: 'EMP002',
+    name: 'John Doe',
+    email: 'john@company.com',
+    role: 'employee',
+    position: 'Software Engineer',
+    department: 'Engineering',
+    managerName: 'Admin User',
+    joinDate: '2021-03-15',
+    phone: '+1 234 567 890',
+    address: '123 Tech Street, Silicon Valley, CA',
+    salary: 85000,
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    companyName: 'TechCorp Inc.',
+    location: 'San Francisco',
+    dob: '1990-05-15',
+    nationality: 'American',
+    gender: 'male',
+    maritalStatus: 'single',
+    bankDetails: {
+      accountNumber: '1234567890',
+      bankName: 'Chase Bank',
+      ifscCode: 'CHAS001',
+      panNumber: 'ABCDE1234F'
+    },
+    documents: [
+      { id: 'DOC1', name: 'Resume.pdf', url: '#', type: 'resume', uploadDate: '2021-03-10' }
+    ],
+    isTempPassword: false,
+    password: 'password',
+  },
+  {
+    id: 'EMP003',
+    name: 'Jane Smith',
+    email: 'jane@company.com',
+    role: 'employee',
+    position: 'Product Designer',
+    department: 'Design',
+    managerName: 'Admin User',
+    joinDate: '2021-06-01',
+    phone: '+1 987 654 321',
+    address: '456 Creative Ave, New York, NY',
+    salary: 78000,
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    companyName: 'TechCorp Inc.',
+    location: 'New York',
+    dob: '1992-08-20',
+    nationality: 'American',
+    gender: 'female',
+    maritalStatus: 'married',
+    isTempPassword: true, // Needs to change password
+    password: 'password',
+  },
+];
+
+export const mockAttendance: Attendance[] = [
+  {
+    id: 'ATT001',
+    userId: 'EMP002',
+    date: '2023-10-25',
+    checkIn: '09:00',
+    checkOut: '17:00',
+    status: 'present',
+    workHours: 8,
+  },
+  {
+    id: 'ATT002',
+    userId: 'EMP002',
+    date: '2023-10-26',
+    checkIn: '09:15',
+    checkOut: '17:15',
+    status: 'present',
+    workHours: 8,
+  },
+  {
+    id: 'ATT003',
+    userId: 'EMP003',
+    date: '2023-10-25',
+    checkIn: '08:55',
+    checkOut: '16:55',
+    status: 'present',
+    workHours: 8,
+  },
+];
+
+export const mockLeaves: LeaveRequest[] = [
+  {
+    id: 'LEAVE001',
+    userId: 'EMP002',
+    type: 'sick',
+    startDate: '2023-11-01',
+    endDate: '2023-11-02',
+    reason: 'Flu fever',
+    status: 'approved',
+    adminComment: 'Get well soon',
+  },
+  {
+    id: 'LEAVE002',
+    userId: 'EMP003',
+    type: 'paid',
+    startDate: '2023-12-20',
+    endDate: '2023-12-25',
+    reason: 'Christmas vacation',
+    status: 'pending',
+  },
+];
+
+export const mockPayroll: PayrollRecord[] = [
+  {
+    id: 'PAY001',
+    userId: 'EMP002',
+    month: '2023-09',
+    basicSalary: 7083,
+    allowances: 500,
+    deductions: 200,
+    netSalary: 7383,
+    status: 'paid',
+    paymentDate: '2023-09-30',
+  },
+  {
+    id: 'PAY002',
+    userId: 'EMP003',
+    month: '2023-09',
+    basicSalary: 6500,
+    allowances: 400,
+    deductions: 150,
+    netSalary: 6750,
+    status: 'paid',
+    paymentDate: '2023-09-30',
+  },
+];
+
+export const mockNotifications: Notification[] = [
+  {
+    id: 'NOTIF1',
+    userId: 'EMP002',
+    title: 'Leave Approved',
+    message: 'Your sick leave for Nov 1-2 has been approved.',
+    type: 'success',
+    date: '2023-10-30',
+    read: false,
+  },
+  {
+    id: 'NOTIF2',
+    userId: 'EMP003',
+    title: 'Welcome',
+    message: 'Welcome to the team! Please complete your profile.',
+    type: 'info',
+    date: '2023-06-01',
+    read: true,
+  },
+  {
+    id: 'NOTIF3',
+    userId: 'all',
+    title: 'System Maintenance',
+    message: 'System will be down for maintenance on Sunday.',
+    type: 'warning',
+    date: '2023-10-28',
+    read: false,
+  }
+];
